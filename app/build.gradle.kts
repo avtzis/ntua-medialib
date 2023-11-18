@@ -20,11 +20,10 @@ dependencies {
   // Use JUnit Jupiter for testing.
   testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
 
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    // This dependency is used by the application.
-    implementation("com.google.guava:guava:32.1.1-jre")
-  
+  // This dependency is used by the application.
+  implementation("com.google.guava:guava:32.1.1-jre")
   implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
 }
 
