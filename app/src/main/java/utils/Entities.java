@@ -3,8 +3,6 @@ package utils;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class Entities {
   public static class User {
     private String username;

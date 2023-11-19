@@ -4,6 +4,9 @@
 package medialib;
 
 import java.util.List;
+import java.util.Scanner;
+
+import org.checkerframework.checker.units.qual.s;
 
 import utils.Parser;
 import utils.Writer;
@@ -75,9 +78,57 @@ public class App {
 
     app.initialize();
     app.printAll();
+    System.out.println("\n\n\n");
 
-    //
+    /* //example db usage
+    User darcie = getUserByUsername("darcie.bernhard");
+    darcie.setFirstName("Darcie");
+    darcie.setLastName("Bernhard"); */
+
+    // Login prompt
+    User user;
+    while((user = app.promptLogin()) == null) {
+      System.out.println("Please try again");
+    }
+    System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName());
 
     app.finalize();
+  }
+
+
+  public static User getUserByUsername(String username) {
+    for (User user : users) {
+      if (user.getUsername().equals(username)) {
+        return user;
+      }
+    }
+    return null; // User not found
+  }
+
+  public User promptLogin() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Username: ");
+    String username = scanner.nextLine();
+    // String username = System.console().readLine();
+
+    System.out.println("Password: ");
+    String password = scanner.nextLine();
+    // String password = System.console().readLine();
+    
+    scanner.close();
+
+    User user = getUserByUsername(username);
+    if(user == null) {
+      System.out.println("User not found");
+      return null;
+    }
+
+    if(!user.getPassword().equals(password)) {
+      System.out.println("Incorrect password");
+      return null;
+    }
+
+    return user;
   }
 }
