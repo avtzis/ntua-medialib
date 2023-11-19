@@ -25,6 +25,7 @@ dependencies {
   // This dependency is used by the application.
   implementation("com.google.guava:guava:32.1.1-jre")
   implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+  implementation("com.github.javafaker:javafaker:1.0.2")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

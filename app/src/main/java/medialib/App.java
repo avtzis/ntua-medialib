@@ -6,6 +6,8 @@ package medialib;
 import java.util.List;
 
 import utils.Parser;
+import utils.Writer;
+
 import utils.Entities.Admin;
 import utils.Entities.User;
 import utils.Entities.Book;
@@ -16,7 +18,7 @@ public class App {
   private static List<User> users;
   private static List<Book> books;
 
-  public static void populate() {
+  public static void initialize() {
     Parser parser = new Parser();
 
     parser.parse();
@@ -26,8 +28,12 @@ public class App {
     books = parser.getBooks();
   }
 
+  public void finalize() {
+    Writer.write(users, books);
+  }
+
   public String getGreeting() {
-    return "Hello World!";
+    return "\n\n\nHello World!\n\n\n";
   }
 
   public static void printAdmins() {
@@ -37,13 +43,13 @@ public class App {
     }
   }
   public static void printUsers() {
-    System.out.println("-----------------Users-----------------");
+    System.out.println("-----------------Users------------------");
     for (User user : users) {
       System.out.println(user.getUsername());
     }
   }
   public static void printBooks() {
-    System.out.println("-----------------Books-----------------");
+    System.out.println("-----------------Books------------------");
     for (Book book : books) {
       System.out.println(book.getTitle());
     }
@@ -54,10 +60,24 @@ public class App {
     printBooks();
   }
 
+  public static void randomize() {
+    Writer.populate();
+  }
+
   public static void main(String[] args) {
     System.out.println(new App().getGreeting());
 
-    populate();
-    printAll();
+    App app = new App();
+
+    if(false) {
+      app.randomize();
+    }
+
+    app.initialize();
+    app.printAll();
+
+    //
+
+    app.finalize();
   }
 }

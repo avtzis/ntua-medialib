@@ -1,6 +1,9 @@
 package utils;
 
 import java.util.List;
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Entities {
   public static class User {
@@ -13,6 +16,22 @@ public class Entities {
     private String address;
     private String dateofbirth;
     private String id;
+    private boolean admin;
+
+    public User() {}
+
+    public User(String username, String password, String firstName, String lastName, String email, String phoneNumber, String address, String dateofbirth, String id) {
+      this.username = username;
+      this.password = password;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.phoneNumber = phoneNumber;
+      this.address = address;
+      this.dateofbirth = dateofbirth;
+      this.id = id;
+      this.admin = false;
+    }
     
     public String getUsername() {
       return username;
@@ -29,7 +48,7 @@ public class Entities {
     }
     
     public boolean isAdmin() {
-      return false;
+      return admin;
     }
 
     public String getFirstName() {
@@ -85,6 +104,13 @@ public class Entities {
   }
   
   public static class Admin extends User {
+    public Admin() { super(); }
+
+    public Admin(String username, String password, String firstName, String lastName, String email, String phoneNumber, String address, String dateofbirth, String id) {
+      super(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
+    }
+    
+    @Override
     public boolean isAdmin() {
       return true;
     }
@@ -96,16 +122,71 @@ public class Entities {
     private String genre;
     private String publisher;
     private String language;
-    private String publicationDate;
-    private String pages;
+    private int publicationDate;
+    private int pages;
     private String description;
     private int copies;
-    private int rating;
-    private int reviews;
-    private List<String> comments;
-    private int likes;
-    private int dislikes;
     private int borrows;
+    private List<Review> reviews;
+    
+    public static class Review {
+        private int rating;
+        private String comment;
+        private Reaction reaction;
+        private String username;
+
+        public Review() {}
+        public Review(int rating, String comment, Reaction reaction, String username) {
+          this.rating = rating;
+          this.comment = comment;
+          this.reaction = reaction;
+          this.username = username;
+        }
+
+        public int getRating() {
+          return rating;
+        }
+        public void setRating(int rating) {
+          this.rating = rating;
+        }
+
+        public String getComment() {
+          return comment;
+        }
+        public void setComment(String comment) {
+          this.comment = comment;
+        }
+
+        public Reaction getReaction() {
+          return reaction;
+        }
+        public void setReaction(Reaction reaction) {
+          this.reaction = reaction;
+        }
+
+        public String getUsername() {
+          return username;
+        }
+        public void setUsername(String username) {
+          this.username = username;
+        }
+      }
+
+    public Book() {}
+
+    public Book(String title, String author, String genre, String publisher, String language, int publicationDate, int pages, String description, int copies, int borrows, List<Review> reviews) {
+      this.title = title;
+      this.author = author;
+      this.genre = genre;
+      this.publisher = publisher;
+      this.language = language;
+      this.publicationDate = publicationDate;
+      this.pages = pages;
+      this.description = description;
+      this.copies = copies;
+      this.borrows = borrows;
+      this.reviews = reviews;
+    }
     
     public String getTitle() {
       return title;
@@ -142,17 +223,17 @@ public class Entities {
       this.language = language;
     }
 
-    public String getPublicationDate() {
+    public int getPublicationDate() {
       return publicationDate;
     }
-    public void setPublicationDate(String publicationDate) {
+    public void setPublicationDate(int publicationDate) {
       this.publicationDate = publicationDate;
     }
 
-    public String getPages() {
+    public int getPages() {
       return pages;
     }
-    public void setPages(String pages) {
+    public void setPages(int pages) {
       this.pages = pages;
     }
 
@@ -176,71 +257,6 @@ public class Entities {
       this.copies--;
     }
 
-    public int getRating() {
-      return rating;
-    }
-    public void setRating(int rating) {
-      this.rating = rating;
-    }
-    public void addRating(int rating) {
-      this.rating += rating;
-    }
-    public void removeRating(int rating) {
-      this.rating -= rating;
-    }
-
-    public int getReviews() {
-      return reviews;
-    }
-    public void setReviews(int reviews) {
-      this.reviews = reviews;
-    }
-    public void addReview() {
-      this.reviews++;
-    }
-    public void removeReview() {
-      this.reviews--;
-    }
-
-    public List<String> getComments() {
-      return comments;
-    }
-    public void addComment(String comment) {
-      this.comments.add(comment);
-    }
-    public void removeComment(String comment) {
-      this.comments.remove(comment);
-    }
-    public void setComments(List<String> comments) {
-      this.comments = comments;
-    }
-
-    public int getLikes() {
-      return likes;
-    }
-    public void setLikes(int likes) {
-      this.likes = likes;
-    }
-    public void addLike() {
-      this.likes++;
-    }
-    public void removeLike() {
-      this.likes--;
-    }
-
-    public int getDislikes() {
-      return dislikes;
-    }
-    public void setDislikes(int dislikes) {
-      this.dislikes = dislikes;
-    }
-    public void addDislike() {
-      this.dislikes++;
-    }
-    public void removeDislike() {
-      this.dislikes--;
-    }
-
     public int getBorrows() {
       return borrows;
     }
@@ -253,5 +269,64 @@ public class Entities {
     public void removeBorrow() {
       this.borrows--;
     }
+    
+    public List<Review> getReviews() {
+      return reviews;
+    }
+    public void setReviews(List<Review> reviews) {
+      this.reviews = reviews;
+    }
+
+    public List<Integer> ratings() {
+        return new ArrayList<Integer>() {{
+          for (Review review : reviews) {
+            add(review.getRating());
+          }
+        }};
+      }
+      public int averageRating() {
+        int sum = 0;
+        for (Review review : reviews) {
+          sum += review.getRating();
+        }
+        return sum / reviews.size();
+      }
+
+      public int reviews() {
+        return reviews.size();
+      }
+
+      public List<String> comments() {
+        return new ArrayList<String>() {{
+          for (Review review : reviews) {
+            add(review.getComment());
+          }
+        }};
+      }
+
+      public int likes() {
+        return new ArrayList<Reaction>() {{
+          for (Review review : reviews) {
+            add(review.getReaction());
+          }
+        }}.stream().filter(reaction -> reaction == Reaction.LIKE).toArray().length;
+      }
+
+      public int dislikes() {
+        return new ArrayList<Reaction>() {{
+          for (Review review : reviews) {
+            add(review.getReaction());
+          }
+        }}.stream().filter(reaction -> reaction == Reaction.DISLIKE).toArray().length;
+      }
+
+      public List<Reaction> reactions() {
+        return new ArrayList<Reaction>() {{
+          for (Review review : reviews) {
+            add(review.getReaction());
+          }
+        }};
+      }
+
   }
 }
