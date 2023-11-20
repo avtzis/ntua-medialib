@@ -6,9 +6,9 @@ import java.io.FileReader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import utils.Entities.Admin;
-import utils.Entities.User;
-import utils.Entities.Book;
+import utils.Models.Admin;
+import utils.Models.User;
+import utils.Models.Book;
 
 public class Parser {
   private static List<Admin> admins;
@@ -18,10 +18,10 @@ public class Parser {
   public static void parse() {
     try {
       ObjectMapper om = new ObjectMapper();
-      
-      admins = om.readValue(new FileReader("src/main/resources/admins.json"), om.getTypeFactory().constructCollectionType(List.class, Admin.class));
-      users = om.readValue(new FileReader("src/main/resources/users.json"), om.getTypeFactory().constructCollectionType(List.class, User.class));
-      books = om.readValue(new FileReader("src/main/resources/books.json"), om.getTypeFactory().constructCollectionType(List.class, Book.class));
+
+      admins = om.readValue(new FileReader("src/main/resources/models/admins.json"), om.getTypeFactory().constructCollectionType(List.class, Admin.class));
+      users = om.readValue(new FileReader("src/main/resources/models/users.json"), om.getTypeFactory().constructCollectionType(List.class, User.class));
+      books = om.readValue(new FileReader("src/main/resources/models/books.json"), om.getTypeFactory().constructCollectionType(List.class, Book.class));
 
     } catch (IOException e) {
       e.printStackTrace();

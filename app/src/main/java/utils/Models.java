@@ -3,7 +3,7 @@ package utils;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Entities {
+public class Models {
   public static class User {
     private String username;
     private String password;
@@ -30,21 +30,21 @@ public class Entities {
       this.id = id;
       this.admin = false;
     }
-    
+
     public String getUsername() {
       return username;
     }
     public void setUsername(String username) {
       this.username = username;
     }
-    
+
     public String getPassword() {
       return password;
     }
     public void setPassword(String password) {
       this.password = password;
     }
-    
+
     public boolean isAdmin() {
       return admin;
     }
@@ -100,14 +100,14 @@ public class Entities {
 
     //
   }
-  
+
   public static class Admin extends User {
     public Admin() { super(); }
 
     public Admin(String username, String password, String firstName, String lastName, String email, String phoneNumber, String address, String dateofbirth, String id) {
       super(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
     }
-    
+
     @Override
     public boolean isAdmin() {
       return true;
@@ -126,7 +126,7 @@ public class Entities {
     private int copies;
     private int borrows;
     private List<Review> reviews;
-    
+
     public static class Review {
         private int rating;
         private String comment;
@@ -185,7 +185,7 @@ public class Entities {
       this.borrows = borrows;
       this.reviews = reviews;
     }
-    
+
     public String getTitle() {
       return title;
     }
@@ -267,7 +267,7 @@ public class Entities {
     public void removeBorrow() {
       this.borrows--;
     }
-    
+
     public List<Review> getReviews() {
       return reviews;
     }

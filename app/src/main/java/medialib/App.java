@@ -6,17 +6,29 @@ package medialib;
 import java.util.List;
 import java.util.Scanner;
 
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import io.github.palexdev.materialfx.theming.JavaFXThemes;
+import io.github.palexdev.materialfx.theming.MaterialFXStylesheets;
+import io.github.palexdev.materialfx.theming.UserAgentBuilder;
+import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.enums.ButtonType;
+
 import org.checkerframework.checker.units.qual.s;
 
 import utils.Parser;
 import utils.Writer;
 
-import utils.Entities.Admin;
-import utils.Entities.User;
-import utils.Entities.Book;
+import utils.Models.Admin;
+import utils.Models.User;
+import utils.Models.Book;
 
 
-public class App {
+public class App extends Application {
   private static List<Admin> admins;
   private static List<User> users;
   private static List<Book> books;
@@ -31,7 +43,7 @@ public class App {
     books = parser.getBooks();
   }
 
-  public void finalize() {
+  public void save() {
     Writer.write(users, books);
   }
 
@@ -78,21 +90,48 @@ public class App {
 
     app.initialize();
     app.printAll();
-    System.out.println("\n\n\n");
+    System.out.println("\n\nInitialization complete.\n\n\n");
 
-    /* //example db usage
-    User darcie = getUserByUsername("darcie.bernhard");
-    darcie.setFirstName("Darcie");
-    darcie.setLastName("Bernhard"); */
+    //example db usage
+    // User darcie = getUserByUsername("darcie.bernhard");
+    // darcie.setFirstName("Darcie");
+    // darcie.setLastName("Bernhard");
 
     // Login prompt
-    User user;
-    while((user = app.promptLogin()) == null) {
-      System.out.println("Please try again");
-    }
-    System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName());
+    // User user;
+    // while((user = app.promptLogin()) == null) {
+    //   System.out.println("Please try again");
+    // }
+    // System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName());
 
-    app.finalize();
+    app.launch(args);
+
+    app.save();
+  }
+
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    // Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+    // Group root = new Group();
+
+    UserAgentBuilder.builder()
+      .themes(JavaFXThemes.MODENA)
+      .themes(MaterialFXStylesheets.forAssemble(true))
+      .setDeploy(true)
+      .setResolveAssets(true)
+      .build()
+      .setGlobal();
+
+    MFXButton button = new MFXButton("Click me!");
+    button.setOnAction(e -> System.out.println("Button clicked!"));
+    button.setButtonType(ButtonType.RAISED);
+
+    StackPane root = new StackPane();
+    root.getChildren().add(button);
+
+    primaryStage.setTitle("Medialab Library");
+    primaryStage.setScene(new Scene(root));
+    primaryStage.show();
   }
 
 
@@ -115,7 +154,7 @@ public class App {
     System.out.println("Password: ");
     String password = scanner.nextLine();
     // String password = System.console().readLine();
-    
+
     scanner.close();
 
     User user = getUserByUsername(username);

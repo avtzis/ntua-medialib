@@ -1,0 +1,296 @@
+[ {
+  "title" : "Death Be Not Proud",
+  "author" : "Abbey Brekke",
+  "genre" : "Classic",
+  "publisher" : "Tate Publishing & Enterprises",
+  "language" : "Zulu",
+  "publicationDate" : 2010,
+  "pages" : 339,
+  "description" : "Fuga distinctio quaerat cum distinctio. Quasi provident a. Maiores fuga voluptatem.",
+  "copies" : 13,
+  "borrows" : 10,
+  "reviews" : [ {
+    "rating" : 3,
+    "comment" : "Doloribus et iste quidem et debitis voluptates ut.",
+    "reaction" : "WOW",
+    "username" : "bonnie.roberts"
+  }, {
+    "rating" : 3,
+    "comment" : "Voluptas nam dolores tenetur laborum saepe omnis.",
+    "reaction" : "SAD",
+    "username" : "fermina.spinka"
+  } ]
+}, {
+  "title" : "Little Hands Clapping",
+  "author" : "Ginny Murazik DVM",
+  "genre" : "Classic",
+  "publisher" : "Left Book Club",
+  "language" : "Zulu",
+  "publicationDate" : 1999,
+  "pages" : 1250,
+  "description" : "Veniam quas ullam. Sequi eum quibusdam cupiditate quia. Facere maxime culpa et. Rerum totam aut et voluptas ullam.",
+  "copies" : 12,
+  "borrows" : 6,
+  "reviews" : [ {
+    "rating" : 2,
+    "comment" : "Unde hic eos omnis facilis maiores velit.",
+    "reaction" : "LOVE",
+    "username" : "marinda.braun"
+  }, {
+    "rating" : 3,
+    "comment" : "Provident dolor eos dolores minima.",
+    "reaction" : "LIKE",
+    "username" : "thaddeus.nitzsche"
+  }, {
+    "rating" : 4,
+    "comment" : "Animi enim doloribus voluptas.",
+    "reaction" : "HAHA",
+    "username" : "katrina.will"
+  }, {
+    "rating" : 4,
+    "comment" : "Repellendus similique voluptate possimus accusantium dolorem.",
+    "reaction" : "HAHA",
+    "username" : "mitchel.mills"
+  }, {
+    "rating" : 4,
+    "comment" : "Vel in perspiciatis est cum minima et.",
+    "reaction" : "LIKE",
+    "username" : "gaylord.blick"
+  } ]
+}, {
+  "title" : "Surprised by Joy",
+  "author" : "Clifton Kshlerin III",
+  "genre" : "Fiction narrative",
+  "publisher" : "Carnegie Mellon University Press",
+  "language" : "Portuguese",
+  "publicationDate" : 2019,
+  "pages" : 1374,
+  "description" : "Est iure aut dolorem doloremque. Explicabo nesciunt ab velit. Et porro velit praesentium molestiae fugiat excepturi illo. Magnam ipsam inventore nesciunt.",
+  "copies" : 18,
+  "borrows" : 5,
+  "reviews" : [ {
+    "rating" : 3,
+    "comment" : "Commodi expedita iste ratione nesciunt perspiciatis dolorem.",
+    "reaction" : "LOVE",
+    "username" : "jamison.durgan"
+  }, {
+    "rating" : 3,
+    "comment" : "Qui illo dolor.",
+    "reaction" : "WOW",
+    "username" : "mauro.romaguera"
+  }, {
+    "rating" : 3,
+    "comment" : "Nisi et ullam.",
+    "reaction" : "LIKE",
+    "username" : "orpha.herman"
+  }, {
+    "rating" : 4,
+    "comment" : "Nam quasi illum deserunt.",
+    "reaction" : "LIKE",
+    "username" : "raymonde.mills"
+  }, {
+    "rating" : 3,
+    "comment" : "Perferendis quod assumenda et itaque ratione quo.",
+    "reaction" : "LIKE",
+    "username" : "sherwood.tillman"
+  }, {
+    "rating" : 4,
+    "comment" : "Aut est exercitationem odit asperiores voluptas nulla.",
+    "reaction" : "LIKE",
+    "username" : "fredrick.smith"
+  } ]
+}, {
+  "title" : "O Pioneers!",
+  "author" : "Marlin Renner",
+  "genre" : "Mystery",
+  "publisher" : "Blue Ribbon Books",
+  "language" : "Zulu",
+  "publicationDate" : 1989,
+  "pages" : 425,
+  "description" : "Non rerum accusamus aliquid. Eum ea a aut quia unde dolores. Magni dolores molestiae occaecati non nisi vel aut. Ut et hic ipsam nulla.",
+  "copies" : 18,
+  "borrows" : 6,
+  "reviews" : [ {
+    "rating" : 2,
+    "comment" : "Officia et facere voluptatem repellat odit optio ipsum.",
+    "reaction" : "LIKE",
+    "username" : "celsa.huel"
+  }, {
+    "rating" : 2,
+    "comment" : "Quos tempora ut omnis neque perferendis sit voluptatum.",
+    "reaction" : "LOVE",
+    "username" : "lamont.ratke"
+  } ]
+}, {
+  "title" : "Of Mice and Men",
+  "author" : "Jim Beier",
+  "genre" : "Historical fiction",
+  "publisher" : "Atlas Press",
+  "language" : "Javanese",
+  "publicationDate" : 1999,
+  "pages" : 816,
+  "description" : "Assumenda unde minus numquam. Harum beatae aut qui non sint est. Magni exercitationem aliquam ut eius ratione dolor voluptatum.",
+  "copies" : 9,
+  "borrows" : 0,
+  "reviews" : [ {
+    "rating" : 3,
+    "comment" : "Tempora eos ipsa qui.",
+    "reaction" : "UNKNOWN",
+    "username" : "lue.quitzon"
+  }, {
+    "rating" : 4,
+    "comment" : "Facere voluptatum veniam officia labore mollitia enim rerum.",
+    "reaction" : "LOVE",
+    "username" : "dong.dicki"
+  }, {
+    "rating" : 1,
+    "comment" : "Beatae natus expedita voluptas voluptas consectetur minima.",
+    "reaction" : "WOW",
+    "username" : "lola.gulgowski"
+  }, {
+    "rating" : 4,
+    "comment" : "Ut non harum dolores.",
+    "reaction" : "HAHA",
+    "username" : "stacy.borer"
+  } ]
+}, {
+  "title" : "Mother Night",
+  "author" : "Rusty Jacobi",
+  "genre" : "Fiction in verse",
+  "publisher" : "Ignatius Press",
+  "language" : "English",
+  "publicationDate" : 2014,
+  "pages" : 1238,
+  "description" : "Laboriosam odit ut nesciunt omnis excepturi nemo. Voluptas facilis natus ullam necessitatibus numquam sequi. Nobis enim omnis ut alias fugiat voluptas enim.",
+  "copies" : 6,
+  "borrows" : 2,
+  "reviews" : [ {
+    "rating" : 4,
+    "comment" : "Iusto minima iste sit itaque explicabo.",
+    "reaction" : "LIKE",
+    "username" : "cortez.kertzmann"
+  }, {
+    "rating" : 4,
+    "comment" : "Odit quis excepturi.",
+    "reaction" : "LOVE",
+    "username" : "devin.mohr"
+  }, {
+    "rating" : 3,
+    "comment" : "Hic qui delectus magnam repellat debitis quia ad.",
+    "reaction" : "WOW",
+    "username" : "marietta.stroman"
+  } ]
+}, {
+  "title" : "To a God Unknown",
+  "author" : "Herlinda Goldner",
+  "genre" : "Biography/Autobiography",
+  "publisher" : "Cengage Learning",
+  "language" : "German",
+  "publicationDate" : 1989,
+  "pages" : 1246,
+  "description" : "Error omnis porro debitis. Est ipsum quia aut enim. Exercitationem est voluptatibus qui.",
+  "copies" : 2,
+  "borrows" : 1,
+  "reviews" : [ {
+    "rating" : 2,
+    "comment" : "Qui et non.",
+    "reaction" : "UNKNOWN",
+    "username" : "filiberto.schaden"
+  }, {
+    "rating" : 2,
+    "comment" : "Deserunt unde est molestiae ex necessitatibus adipisci.",
+    "reaction" : "HAHA",
+    "username" : "bernita.jakubowski"
+  }, {
+    "rating" : 1,
+    "comment" : "Non et ducimus.",
+    "reaction" : "HAHA",
+    "username" : "wilbert.graham"
+  } ]
+}, {
+  "title" : "Shall not Perish",
+  "author" : "Tammera Boyer",
+  "genre" : "Biography/Autobiography",
+  "publisher" : "Emerald Group Publishing",
+  "language" : "English",
+  "publicationDate" : 1998,
+  "pages" : 913,
+  "description" : "Placeat eos at est natus totam. Similique ut modi sunt quibusdam recusandae reprehenderit. Quo voluptas officia voluptas necessitatibus magnam repellat.",
+  "copies" : 2,
+  "borrows" : 0,
+  "reviews" : [ {
+    "rating" : 4,
+    "comment" : "Nesciunt atque eaque.",
+    "reaction" : "LIKE",
+    "username" : "boyce.kuhic"
+  }, {
+    "rating" : 4,
+    "comment" : "Est aliquid sit id et eaque.",
+    "reaction" : "HAHA",
+    "username" : "forrest.brakus"
+  } ]
+}, {
+  "title" : "Of Mice and Men",
+  "author" : "Joseph McClure",
+  "genre" : "Metafiction",
+  "publisher" : "Parragon",
+  "language" : "Tagalog",
+  "publicationDate" : 2000,
+  "pages" : 569,
+  "description" : "Voluptate quasi non molestiae natus. Consequatur quae enim. Rerum qui quo in sint voluptatibus omnis non. Veniam dolorem alias amet.",
+  "copies" : 9,
+  "borrows" : 2,
+  "reviews" : [ {
+    "rating" : 1,
+    "comment" : "Magnam quod qui.",
+    "reaction" : "WOW",
+    "username" : "lyndon.johns"
+  }, {
+    "rating" : 3,
+    "comment" : "Id qui aut occaecati in vitae adipisci in.",
+    "reaction" : "DISLIKE",
+    "username" : "thora.wehner"
+  } ]
+}, {
+  "title" : "Look Homeward, Angel",
+  "author" : "Mauricio Sawayn",
+  "genre" : "Crime/Detective",
+  "publisher" : "Holland Park Press",
+  "language" : "Marathi",
+  "publicationDate" : 1983,
+  "pages" : 645,
+  "description" : "Voluptas et excepturi voluptatibus est rerum voluptatum sunt. Et cum est adipisci. Perspiciatis ducimus eaque id necessitatibus. Id et dolorem corporis quisquam tenetur nisi tenetur. Inventore tempora rerum.",
+  "copies" : 6,
+  "borrows" : 1,
+  "reviews" : [ {
+    "rating" : 2,
+    "comment" : "Et nulla beatae.",
+    "reaction" : "DISLIKE",
+    "username" : "wayne.corkery"
+  }, {
+    "rating" : 1,
+    "comment" : "Quaerat quibusdam suscipit.",
+    "reaction" : "UNKNOWN",
+    "username" : "cris.wilderman"
+  }, {
+    "rating" : 1,
+    "comment" : "Et repellat blanditiis.",
+    "reaction" : "HAHA",
+    "username" : "basil.lemke"
+  }, {
+    "rating" : 3,
+    "comment" : "Eius maxime itaque occaecati unde.",
+    "reaction" : "HAHA",
+    "username" : "sommer.daniel"
+  }, {
+    "rating" : 2,
+    "comment" : "Accusamus est quo repellendus.",
+    "reaction" : "LOVE",
+    "username" : "rolland.gorczany"
+  }, {
+    "rating" : 4,
+    "comment" : "Iusto ea facere porro aspernatur.",
+    "reaction" : "HAHA",
+    "username" : "corey.ankunding"
+  } ]
+} ]

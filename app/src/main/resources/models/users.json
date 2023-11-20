@@ -1,0 +1,111 @@
+[ {
+  "username" : "erik.hills",
+  "password" : "s9c19f7c6o9j3",
+  "firstName" : "Leslie",
+  "lastName" : "Lesch",
+  "email" : "georgie.mcglynn@yahoo.com",
+  "phoneNumber" : "053.139.1361 x6565",
+  "address" : "Suite 147 09292 Bergstrom Flat, North Loise, AL 60648-7534",
+  "dateofbirth" : "Sun Feb 01 04:29:18 EET 1959",
+  "id" : "877-95-3477",
+  "admin" : false
+}, {
+  "username" : "marg.bode",
+  "password" : "8q9ml1p0yt2vy",
+  "firstName" : "Abby",
+  "lastName" : "Hermiston",
+  "email" : "gene.ebert@hotmail.com",
+  "phoneNumber" : "999.665.4394 x5884",
+  "address" : "6493 Estela Stream, Lake Andreashire, NY 36681-7817",
+  "dateofbirth" : "Sat Dec 06 16:27:02 EET 1975",
+  "id" : "180-59-0087",
+  "admin" : false
+}, {
+  "username" : "twanna.jakubowski",
+  "password" : "2mveyc6ihi",
+  "firstName" : "Rebekah",
+  "lastName" : "Reichert",
+  "email" : "stephen.waters@gmail.com",
+  "phoneNumber" : "001-158-2068 x21055",
+  "address" : "77002 Gisela Roads, Lake Hortense, NJ 86491",
+  "dateofbirth" : "Thu Sep 08 14:29:36 EEST 1988",
+  "id" : "492-05-1285",
+  "admin" : false
+}, {
+  "username" : "tommy.sauer",
+  "password" : "a1fgfm84rnlshp",
+  "firstName" : "Sung",
+  "lastName" : "Luettgen",
+  "email" : "virgil.hane@yahoo.com",
+  "phoneNumber" : "1-740-544-3926",
+  "address" : "7513 Maryland Cove, Kreigerchester, MI 40793",
+  "dateofbirth" : "Thu Oct 02 04:44:12 EET 1986",
+  "id" : "144-83-5216",
+  "admin" : false
+}, {
+  "username" : "alden.schamberger",
+  "password" : "7grgqp2hayj8kau",
+  "firstName" : "Joseph",
+  "lastName" : "Larkin",
+  "email" : "esteban.larkin@hotmail.com",
+  "phoneNumber" : "878.872.3501 x596",
+  "address" : "6121 Rodriguez Square, New Elijahstad, PA 21520",
+  "dateofbirth" : "Sun Aug 09 13:52:08 EET 1959",
+  "id" : "196-51-7090",
+  "admin" : false
+}, {
+  "username" : "karon.gulgowski",
+  "password" : "selwqp5zwp2053h",
+  "firstName" : "Jere",
+  "lastName" : "Jones",
+  "email" : "walker.marks@gmail.com",
+  "phoneNumber" : "657-245-1625",
+  "address" : "4571 Robel Forest, East Donny, MO 43942",
+  "dateofbirth" : "Sat Aug 20 19:20:45 EET 1960",
+  "id" : "241-20-7363",
+  "admin" : false
+}, {
+  "username" : "michaela.lueilwitz",
+  "password" : "pvxjzt0ui7n4uxr",
+  "firstName" : "Lamar",
+  "lastName" : "Gerhold",
+  "email" : "dwayne.murray@hotmail.com",
+  "phoneNumber" : "706.580.8164 x4905",
+  "address" : "290 Goyette Forge, Port Dorian, MO 93311-3454",
+  "dateofbirth" : "Tue Feb 19 22:43:51 EET 1991",
+  "id" : "621-31-4206",
+  "admin" : false
+}, {
+  "username" : "kurtis.heller",
+  "password" : "jpmivg4hbxkp",
+  "firstName" : "Chester",
+  "lastName" : "Mayer",
+  "email" : "cornell.hermiston@yahoo.com",
+  "phoneNumber" : "(478) 586-8212",
+  "address" : "Suite 066 787 Tremblay Pass, East Lonny, TX 00920-8746",
+  "dateofbirth" : "Fri Nov 15 23:40:16 EET 1968",
+  "id" : "108-32-3016",
+  "admin" : false
+}, {
+  "username" : "creola.hilpert",
+  "password" : "rwxzh6dm1hlfrsp",
+  "firstName" : "Julio",
+  "lastName" : "Wyman",
+  "email" : "jake.lindgren@hotmail.com",
+  "phoneNumber" : "(856) 325-7280 x98553",
+  "address" : "607 Wisozk Plains, New Freddiestad, MI 18348-7440",
+  "dateofbirth" : "Mon Jan 11 06:13:57 EET 1971",
+  "id" : "683-69-7526",
+  "admin" : false
+}, {
+  "username" : "charlotte.carroll",
+  "password" : "fj7estyctpizp",
+  "firstName" : "Elliot",
+  "lastName" : "Carter",
+  "email" : "enrique.schmeler@hotmail.com",
+  "phoneNumber" : "786.204.4188",
+  "address" : "6857 Sunni Turnpike, Stantonborough, OR 86899",
+  "dateofbirth" : "Mon Jun 05 17:24:56 EET 1967",
+  "id" : "480-76-7769",
+  "admin" : false
+} ]
