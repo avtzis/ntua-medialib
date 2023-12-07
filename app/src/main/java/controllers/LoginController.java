@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import medialib.App;
@@ -28,6 +29,21 @@ public class LoginController implements Initializable {
   private TextField username;
   @FXML
   private TextField password;
+  @FXML
+  private TextField email;
+  @FXML
+  private TextField phoneNumber;
+  @FXML
+  private TextField firstName;
+  @FXML
+  private TextField lastName;
+  @FXML
+  private TextField address;
+  @FXML
+  private DatePicker dateofbirth;
+  @FXML
+  private TextField id;
+
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {}
@@ -68,5 +84,47 @@ public class LoginController implements Initializable {
     } else {
       System.out.println("User not found");
     }
+  }
+
+  public void register(ActionEvent event) throws IOException {
+    String username = this.username.getText();
+    String password = this.password.getText();
+    String email = this.email.getText();
+    String phoneNumber = this.phoneNumber.getText();
+    String firstName = this.firstName.getText();
+    String lastName = this.lastName.getText();
+    String address = this.address.getText();
+    String dateofbirth = this.dateofbirth.getValue().toString();
+    String id = this.id.getText();
+
+    if(username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || firstName.equals("") || lastName.equals("") || address.equals("") || dateofbirth.equals("") || id.equals("")) {
+      System.out.println("Please fill in all fields");
+      return;
+    } else if (App.getUserByUsername(username) != null) {
+      System.out.println("Username already exists");
+      return;
+    } else if (App.getUserByEmail(email) != null) {
+      System.out.println("Email already exists");
+      return;
+    } else if (App.getUserById(id) != null) {
+      System.out.println("ID already exists");
+      return;
+    } else {
+      System.out.println("username: " + username);
+      System.out.println("password: " + password);
+      System.out.println("email: " + email);
+      System.out.println("phoneNumber: " + phoneNumber);
+      System.out.println("firstName: " + firstName);
+      System.out.println("lastName: " + lastName);
+      System.out.println("address: " + address);
+      System.out.println("dateofbirth: " + dateofbirth);
+      System.out.println("id: " + id);
+    }
+
+    User user = new User(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
+    App.addUser(user);
+    System.out.println("Register successful");
+    App.setCurrentUser(user);
+    switchToHome2(event);
   }
 }

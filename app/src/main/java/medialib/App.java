@@ -147,12 +147,32 @@ public class App extends Application {
     }
     return null; // User not found
   }
+  public static User getUserByEmail(String email) {
+    for (User user : users) {
+      if (user.getEmail().equals(email)) {
+        return user;
+      }
+    }
+    return null; // User not found
+  }
+  public static User getUserById(String id) {
+    for (User user : users) {
+      if (user.getId().equals(id)) {
+        return user;
+      }
+    }
+    return null; // User not found
+  }
 
   public static void setCurrentUser(User user) {
     currentUser = user;
   }
   public static User getCurrentUser() {
     return currentUser;
+  }
+
+  public static void addUser(User user) {
+    users.add(user);
   }
 
 }

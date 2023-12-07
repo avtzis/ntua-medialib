@@ -93,19 +93,19 @@
                   <Font size="31.0" />
                </font>
             </Text>
-            <TextField layoutX="119.0" layoutY="68.0" promptText="Username" />
-            <TextField layoutX="119.0" layoutY="120.0" promptText="Password" />
-            <TextField layoutX="119.0" layoutY="174.0" promptText="Email" />
-            <TextField layoutX="358.0" layoutY="68.0" promptText="First Name" />
-            <TextField layoutX="358.0" layoutY="120.0" promptText="Last Name" />
-            <TextField layoutX="358.0" layoutY="174.0" promptText="Address" />
-            <TextField layoutX="358.0" layoutY="223.0" promptText="Phone No." />
-            <TextField layoutX="119.0" layoutY="223.0" promptText="Id No." />
-            <DatePicker layoutX="226.0" layoutY="274.0" promptText="Date of Birth" />
+            <TextField fx:id="username" layoutX="119.0" layoutY="68.0" promptText="Username" />
+            <TextField fx:id="password" layoutX="119.0" layoutY="120.0" promptText="Password" />
+            <TextField fx:id="email" layoutX="119.0" layoutY="174.0" promptText="Email" />
+            <TextField fx:id="firstName" layoutX="358.0" layoutY="68.0" promptText="First Name" />
+            <TextField fx:id="lastName" layoutX="358.0" layoutY="120.0" promptText="Last Name" />
+            <TextField fx:id="address" layoutX="358.0" layoutY="174.0" promptText="Address" />
+            <TextField fx:id="phoneNumber" layoutX="358.0" layoutY="223.0" promptText="Phone No." />
+            <TextField fx:id="id" layoutX="119.0" layoutY="223.0" promptText="Id No." />
+            <DatePicker fx:id="dateofbirth" layoutX="226.0" layoutY="274.0" promptText="Date of Birth" />
             <ButtonBar layoutX="220.0" layoutY="319.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
                 <Button cancelButton="true" mnemonicParsing="false" onAction="#switchToHome" text="Back" />
-                  <Button defaultButton="true" mnemonicParsing="false" text="Confirm" />
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#register" text="Confirm" />
               </buttons>
             </ButtonBar>
          </children>
