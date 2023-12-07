@@ -9,6 +9,9 @@ plugins {
   // Apply the application plugin to add support for building a CLI application in Java.
   application
   `java-library`
+  // org.openjfx.javafxplugin
+  // org.beryx.jlink
+  id("org.openjfx.javafxplugin") version "0.0.10"
 }
 
 repositories {
@@ -26,6 +29,7 @@ dependencies {
   implementation("com.google.guava:guava:32.1.1-jre")
   implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
   implementation("com.github.javafaker:javafaker:1.0.2")
+  implementation("io.github.palexdev:materialfx:11.17.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -33,6 +37,11 @@ java {
   toolchain {
     languageVersion.set(JavaLanguageVersion.of(21))
   }
+}
+
+javafx {
+  version = "21.0.1"
+  modules("javafx.controls", "javafx.fxml")
 }
 
 application {
@@ -43,4 +52,7 @@ application {
 tasks.named<Test>("test") {
   // Use JUnit Platform for unit tests.
   useJUnitPlatform()
+}
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }

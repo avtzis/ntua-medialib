@@ -3,11 +3,14 @@
  */
 package medialib;
 
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -20,6 +23,8 @@ import io.github.palexdev.materialfx.enums.ButtonType;
 
 import org.checkerframework.checker.units.qual.s;
 
+import controllers.AppController;
+import controllers.HomeController;
 import utils.Parser;
 import utils.Writer;
 
@@ -32,6 +37,7 @@ public class App extends Application {
   private static List<Admin> admins;
   private static List<User> users;
   private static List<Book> books;
+  private static User currentUser;
 
   public static void initialize() {
     Parser parser = new Parser();
@@ -43,7 +49,7 @@ public class App extends Application {
     books = parser.getBooks();
   }
 
-  public void save() {
+  public static void save() {
     Writer.write(users, books);
   }
 
@@ -82,37 +88,27 @@ public class App extends Application {
   public static void main(String[] args) {
     System.out.println(new App().getGreeting());
 
-    App app = new App();
-
     if(false) {
-      app.randomize();
+      randomize();
     }
 
-    app.initialize();
-    app.printAll();
+    initialize();
+    // printAll();
     System.out.println("\n\nInitialization complete.\n\n\n");
 
-    //example db usage
-    // User darcie = getUserByUsername("darcie.bernhard");
-    // darcie.setFirstName("Darcie");
-    // darcie.setLastName("Bernhard");
+    launch(args);
 
-    // Login prompt
-    // User user;
-    // while((user = app.promptLogin()) == null) {
-    //   System.out.println("Please try again");
-    // }
-    // System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName());
-
-    app.launch(args);
-
-    app.save();
+    save();
   }
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    // Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+    // Parent root = FXMLLoader.load(getClass().getResource("App.fxml"));
     // Group root = new Group();
+
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Home.fxml"));
+    // loader.setControllerFactory(c -> new HomeController(primaryStage));
+    Parent root = loader.load();
 
     UserAgentBuilder.builder()
       .themes(JavaFXThemes.MODENA)
@@ -122,18 +118,26 @@ public class App extends Application {
       .build()
       .setGlobal();
 
-    MFXButton button = new MFXButton("Click me!");
-    button.setOnAction(e -> System.out.println("Button clicked!"));
-    button.setButtonType(ButtonType.RAISED);
+    // MFXButton button = new MFXButton("Click me!");
+    // button.setOnAction(e -> System.out.println("Button clicked!"));
+    // button.setButtonType(ButtonType.RAISED);
 
-    StackPane root = new StackPane();
-    root.getChildren().add(button);
+    // StackPane root = new StackPane();
+    // root.getChildren().add(button);
 
     primaryStage.setTitle("Medialab Library");
     primaryStage.setScene(new Scene(root));
     primaryStage.show();
   }
 
+  public static Admin getAdminByUsername(String username) {
+    for (Admin admin : admins) {
+      if (admin.getUsername().equals(username)) {
+        return admin;
+      }
+    }
+    return null; // Admin not found
+  }
 
   public static User getUserByUsername(String username) {
     for (User user : users) {
@@ -144,30 +148,11 @@ public class App extends Application {
     return null; // User not found
   }
 
-  public User promptLogin() {
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Username: ");
-    String username = scanner.nextLine();
-    // String username = System.console().readLine();
-
-    System.out.println("Password: ");
-    String password = scanner.nextLine();
-    // String password = System.console().readLine();
-
-    scanner.close();
-
-    User user = getUserByUsername(username);
-    if(user == null) {
-      System.out.println("User not found");
-      return null;
-    }
-
-    if(!user.getPassword().equals(password)) {
-      System.out.println("Incorrect password");
-      return null;
-    }
-
-    return user;
+  public static void setCurrentUser(User user) {
+    currentUser = user;
   }
+  public static User getCurrentUser() {
+    return currentUser;
+  }
+
 }
