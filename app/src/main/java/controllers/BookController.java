@@ -72,6 +72,8 @@ public class BookController implements Initializable {
 
   @FXML
   private Button borrowButton;
+  @FXML
+  private Button reviewButton;
 
   @FXML
   private ChoiceBox<Integer> rating;
@@ -191,6 +193,14 @@ public class BookController implements Initializable {
     if(borrowButton != null) {
       if(currentBook.getBorrows() >= currentBook.getCopies() || !currentUser.canBorrow()) {
         borrowButton.setDisable(true);
+      }
+
+      if(!currentUser.hasBorrowed(currentBook.getTitle())) {
+        reviewButton.setDisable(true);
+      }
+
+      if(currentBook.hasBeenReviewedBy(currentUser.getUsername())) {
+        reviewButton.setDisable(true);
       }
     }
 

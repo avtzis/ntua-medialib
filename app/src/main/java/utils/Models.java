@@ -188,6 +188,13 @@ public class Models {
       }};
     }
 
+    public boolean hasBorrowed(String book) {
+      for (Borrows borrow : borrows) {
+        if(borrow.getBook().equals(book)) return true;
+      }
+      return false;
+    }
+
     //
   }
 
@@ -384,6 +391,13 @@ public class Models {
           add(review.getComment());
         }
       }};
+    }
+
+    public boolean hasBeenReviewedBy(String username) {
+      for (Review review : reviews) {
+        if(review.getUsername().equals(username)) return true;
+      }
+      return false;
     }
   }
 }

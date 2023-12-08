@@ -128,7 +128,7 @@
                                     <Label fx:id="reviews" layoutX="509.0" layoutY="141.0" text="Label" />
                                     <Button layoutX="204.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToBrowse" text="Back" />
                                     <Button fx:id="borrowButton" layoutX="288.0" layoutY="168.0" mnemonicParsing="false" onAction="#borrow" text="Borrow" />
-                                    <Button layoutX="381.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToReview" text="Write a review" />
+                                    <Button fx:id="reviewButton" layoutX="381.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToReview" text="Write a review" />
                                  </children>
                               </AnchorPane>
                               <ListView fx:id="reviewList" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
