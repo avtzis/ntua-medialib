@@ -8,7 +8,8 @@
   "address" : "Suite 147 09292 Bergstrom Flat, North Loise, AL 60648-7534",
   "dateofbirth" : "Sun Feb 01 04:29:18 EET 1959",
   "id" : "877-95-3477",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "marg.bode",
   "password" : "8q9ml1p0yt2vy",
@@ -19,7 +20,8 @@
   "address" : "6493 Estela Stream, Lake Andreashire, NY 36681-7817",
   "dateofbirth" : "Sat Dec 06 16:27:02 EET 1975",
   "id" : "180-59-0087",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "twanna.jakubowski",
   "password" : "2mveyc6ihi",
@@ -30,7 +32,8 @@
   "address" : "77002 Gisela Roads, Lake Hortense, NJ 86491",
   "dateofbirth" : "Thu Sep 08 14:29:36 EEST 1988",
   "id" : "492-05-1285",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "tommy.sauer",
   "password" : "a1fgfm84rnlshp",
@@ -41,7 +44,8 @@
   "address" : "7513 Maryland Cove, Kreigerchester, MI 40793",
   "dateofbirth" : "Thu Oct 02 04:44:12 EET 1986",
   "id" : "144-83-5216",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "alden.schamberger",
   "password" : "7grgqp2hayj8kau",
@@ -52,7 +56,8 @@
   "address" : "6121 Rodriguez Square, New Elijahstad, PA 21520",
   "dateofbirth" : "Sun Aug 09 13:52:08 EET 1959",
   "id" : "196-51-7090",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "karon.gulgowski",
   "password" : "selwqp5zwp2053h",
@@ -63,7 +68,8 @@
   "address" : "4571 Robel Forest, East Donny, MO 43942",
   "dateofbirth" : "Sat Aug 20 19:20:45 EET 1960",
   "id" : "241-20-7363",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "michaela.lueilwitz",
   "password" : "pvxjzt0ui7n4uxr",
@@ -74,7 +80,8 @@
   "address" : "290 Goyette Forge, Port Dorian, MO 93311-3454",
   "dateofbirth" : "Tue Feb 19 22:43:51 EET 1991",
   "id" : "621-31-4206",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "kurtis.heller",
   "password" : "jpmivg4hbxkp",
@@ -85,7 +92,8 @@
   "address" : "Suite 066 787 Tremblay Pass, East Lonny, TX 00920-8746",
   "dateofbirth" : "Fri Nov 15 23:40:16 EET 1968",
   "id" : "108-32-3016",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "creola.hilpert",
   "password" : "rwxzh6dm1hlfrsp",
@@ -96,7 +104,8 @@
   "address" : "607 Wisozk Plains, New Freddiestad, MI 18348-7440",
   "dateofbirth" : "Mon Jan 11 06:13:57 EET 1971",
   "id" : "683-69-7526",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
 }, {
   "username" : "charlotte.carroll",
   "password" : "fj7estyctpizp",
@@ -107,5 +116,42 @@
   "address" : "6857 Sunni Turnpike, Stantonborough, OR 86899",
   "dateofbirth" : "Mon Jun 05 17:24:56 EET 1967",
   "id" : "480-76-7769",
-  "admin" : false
+  "admin" : false,
+  "borrows" : null
+}, {
+  "username" : "avtzis",
+  "password" : "123",
+  "firstName" : "Altan",
+  "lastName" : "Avtzi",
+  "email" : "avtzialtan@hotmail.com",
+  "phoneNumber" : "6969696969",
+  "address" : "Home Street 42",
+  "dateofbirth" : "2001-03-06",
+  "id" : "AH900605",
+  "admin" : false,
+  "borrows" : null
+}, {
+  "username" : "user",
+  "password" : "user",
+  "firstName" : "user",
+  "lastName" : "user",
+  "email" : "user",
+  "phoneNumber" : "123",
+  "address" : "user",
+  "dateofbirth" : "2023-12-07",
+  "id" : "123",
+  "admin" : false,
+  "borrows" : [ {
+    "book" : "O Pioneers!",
+    "date" : "2023-12-08",
+    "returnDate" : "2023-12-13",
+    "active" : true,
+    "isbn" : null
+  }, {
+    "book" : "Look Homeward, Angel",
+    "date" : "2023-12-08",
+    "returnDate" : "2023-12-13",
+    "active" : true,
+    "isbn" : null
+  } ]
 } ]

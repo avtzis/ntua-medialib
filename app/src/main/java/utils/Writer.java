@@ -40,7 +40,6 @@ public class Writer {
         reviews.add(new Book.Review(
           faker.number().numberBetween(1, 5),
           faker.lorem().sentence(),
-          Reaction.values()[faker.number().numberBetween(0, Reaction.values().length)],
           faker.name().username()
         ));
       }

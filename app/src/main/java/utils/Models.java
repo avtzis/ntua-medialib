@@ -15,6 +15,64 @@ public class Models {
     private String dateofbirth;
     private String id;
     private boolean admin;
+    private List<Borrows> borrows;
+
+    public static class Borrows {
+      private String book;
+      private String date;
+      private String returnDate;
+      private boolean active;
+      private String ISBN;
+
+      public Borrows() {}
+
+      public Borrows(String book, String date, String returnDate, boolean active, String ISBN) {
+        this.book = book;
+        this.date = date;
+        this.returnDate = returnDate;
+        this.active = active;
+        this.ISBN = ISBN;
+      }
+
+      public String getBook() {
+        return book;
+      }
+      public void setBook(String book) {
+        this.book = book;
+      }
+
+      public String getDate() {
+        return date;
+      }
+      public void setDate(String date) {
+        this.date = date;
+      }
+
+      public String getReturnDate() {
+        return returnDate;
+      }
+      public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+      }
+
+      public boolean isActive() {
+        return active;
+      }
+      public void setActive(boolean active) {
+        this.active = active;
+      }
+
+      public String getISBN() {
+        return ISBN;
+      }
+      public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+      }
+
+      public void returnBook() {
+        this.active = false;
+      }
+    }
 
     public User() {}
 
@@ -29,6 +87,7 @@ public class Models {
       this.dateofbirth = dateofbirth;
       this.id = id;
       this.admin = false;
+      this.borrows = new ArrayList<Borrows>();
     }
 
     public String getUsername() {
@@ -98,6 +157,37 @@ public class Models {
       this.id = id;
     }
 
+    public List<Borrows> getBorrows() {
+      return borrows;
+    }
+    public void setBorrows(List<Borrows> borrows) {
+      this.borrows = borrows;
+    }
+    public void addBorrow(Borrows borrow) {
+      this.borrows.add(borrow);
+    }
+    public void removeBorrow(Borrows borrow) {
+      this.borrows.remove(borrow);
+    }
+    public boolean canBorrow() {
+      if(borrows == null) return true;
+
+      int activeBorrows = 0;
+      for (Borrows borrow : borrows) {
+        if(borrow.isActive()) activeBorrows++;
+      }
+      System.out.println("Active borrows: " + activeBorrows);
+      return activeBorrows < 2;
+    }
+
+    public List<Borrows> activeBorrows() {
+      return new ArrayList<Borrows>() {{
+        for (Borrows borrow : borrows) {
+          if(borrow.isActive()) add(borrow);
+        }
+      }};
+    }
+
     //
   }
 
@@ -130,14 +220,12 @@ public class Models {
     public static class Review {
         private int rating;
         private String comment;
-        private Reaction reaction;
         private String username;
 
         public Review() {}
-        public Review(int rating, String comment, Reaction reaction, String username) {
+        public Review(int rating, String comment, String username) {
           this.rating = rating;
           this.comment = comment;
-          this.reaction = reaction;
           this.username = username;
         }
 
@@ -153,13 +241,6 @@ public class Models {
         }
         public void setComment(String comment) {
           this.comment = comment;
-        }
-
-        public Reaction getReaction() {
-          return reaction;
-        }
-        public void setReaction(Reaction reaction) {
-          this.reaction = reaction;
         }
 
         public String getUsername() {
@@ -274,57 +355,35 @@ public class Models {
     public void setReviews(List<Review> reviews) {
       this.reviews = reviews;
     }
+    public void addReview(Review review) {
+      this.reviews.add(review);
+    }
 
     public List<Integer> ratings() {
-        return new ArrayList<Integer>() {{
-          for (Review review : reviews) {
-            add(review.getRating());
-          }
-        }};
-      }
-      public int averageRating() {
-        int sum = 0;
+      return new ArrayList<Integer>() {{
         for (Review review : reviews) {
-          sum += review.getRating();
+          add(review.getRating());
         }
-        return sum / reviews.size();
+      }};
+    }
+    public int averageRating() {
+      int sum = 0;
+      for (Review review : reviews) {
+        sum += review.getRating();
       }
+      return sum / reviews.size();
+    }
 
-      public int reviews() {
-        return reviews.size();
-      }
+    public int reviews() {
+      return reviews.size();
+    }
 
-      public List<String> comments() {
-        return new ArrayList<String>() {{
-          for (Review review : reviews) {
-            add(review.getComment());
-          }
-        }};
-      }
-
-      public int likes() {
-        return new ArrayList<Reaction>() {{
-          for (Review review : reviews) {
-            add(review.getReaction());
-          }
-        }}.stream().filter(reaction -> reaction == Reaction.LIKE).toArray().length;
-      }
-
-      public int dislikes() {
-        return new ArrayList<Reaction>() {{
-          for (Review review : reviews) {
-            add(review.getReaction());
-          }
-        }}.stream().filter(reaction -> reaction == Reaction.DISLIKE).toArray().length;
-      }
-
-      public List<Reaction> reactions() {
-        return new ArrayList<Reaction>() {{
-          for (Review review : reviews) {
-            add(review.getReaction());
-          }
-        }};
-      }
-
+    public List<String> comments() {
+      return new ArrayList<String>() {{
+        for (Review review : reviews) {
+          add(review.getComment());
+        }
+      }};
+    }
   }
 }

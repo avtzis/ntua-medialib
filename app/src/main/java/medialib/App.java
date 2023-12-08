@@ -175,4 +175,17 @@ public class App extends Application {
     users.add(user);
   }
 
+  public static List<Book> getBooks() {
+    return books;
+  }
+
+  public static Book getBookByTitle(String title) {
+    for (Book book : books) {
+      if (book.getTitle().equals(title)) {
+        return book;
+      }
+    }
+    return null; // Book not found
+  }
+
 }

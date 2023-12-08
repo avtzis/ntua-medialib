@@ -1,22 +1,42 @@
 package controllers;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import medialib.App;
 import javafx.scene.Node;
-
+import utils.Query;
 import utils.ResourceLoader;
+import utils.Models.Book;
 import utils.Models.User;
 
-public class HomeController {
+public class HomeController implements Initializable {
   private Stage stage;
   private Scene scene;
   private Parent root;
+
+  @FXML
+  private ListView topFiveList;
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    List<Book> topFive = Query.topFive();
+
+    for (Book book : topFive) {
+      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + book.averageRating() + "/5 (" + book.reviews() + " reviews)";
+      topFiveList.getItems().add(fullTitle);
+    }
+  }
 
   public void switchToLogin(ActionEvent event) throws IOException {
     root = FXMLLoader.load(ResourceLoader.loadURL("/views/login.fxml"));
@@ -36,6 +56,22 @@ public class HomeController {
 
   public void switchToHome(ActionEvent event) throws IOException {
     root = FXMLLoader.load(ResourceLoader.loadURL("/views/Home.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void switchToBrowse(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(ResourceLoader.loadURL("/views/browse.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void switchToBorrows(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(ResourceLoader.loadURL("/views/borrows.fxml"));
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
