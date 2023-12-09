@@ -49,6 +49,19 @@ public class Query {
     return results;
   }
 
+  public static List<Book> searchByDate(int date) {
+    List<Book> books = App.getBooks();
+    List<Book> results = new ArrayList<Book>();
+
+    for (Book book : books) {
+      if (book.getPublicationDate() == date) {
+        results.add(book);
+      }
+    }
+
+    return results;
+  }
+
   public static List<Book> filterByCategory(String category) {
     List<Book> books = App.getBooks();
     List<Book> results = new ArrayList<Book>();
@@ -83,7 +96,7 @@ public class Query {
     List<Book> books = new ArrayList<>(App.getBooks());
     List<Book> results = new ArrayList<Book>();
 
-    books.sort((a, b) -> Integer.compare(a.averageRating(), b.averageRating()));
+    books.sort((a, b) -> Double.compare(a.averageRating(), b.averageRating()));
 
     results.add(books.get(books.size() - 1));
     results.add(books.get(books.size() - 2));

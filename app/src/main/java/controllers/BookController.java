@@ -237,11 +237,15 @@ public class BookController implements Initializable {
 
     List<Book> byTitle = Query.searchByTitle(query);
     List<Book> byAuthor = Query.searchByAuthor(query);
-    List<Book> byGenre = Query.searchByGenre(query);
+
+    try {
+      int converted = Integer.parseInt(query);
+      List<Book> byDate = Query.searchByDate(converted);
+      books.addAll(byDate);
+    } catch (NumberFormatException e) {}
 
     books.addAll(byTitle);
     books.addAll(byAuthor);
-    books.addAll(byGenre);
 
     bookList.getItems().clear();
 
