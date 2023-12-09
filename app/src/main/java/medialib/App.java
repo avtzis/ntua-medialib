@@ -22,6 +22,7 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.enums.ButtonType;
 
 import org.checkerframework.checker.units.qual.s;
+import org.checkerframework.checker.units.qual.t;
 
 import controllers.HomeController;
 import utils.Parser;
@@ -30,12 +31,14 @@ import utils.Writer;
 import utils.Models.Admin;
 import utils.Models.User;
 import utils.Models.Book;
+import utils.Models.Category;
 
 
 public class App extends Application {
   private static List<Admin> admins;
   private static List<User> users;
   private static List<Book> books;
+  private static List<Category> categories;
   private static User currentUser;
 
   public static void initialize() {
@@ -49,7 +52,7 @@ public class App extends Application {
   }
 
   public static void save() {
-    Writer.write(users, books);
+    Writer.write(users, books, categories);
   }
 
   public String getGreeting() {
@@ -85,10 +88,9 @@ public class App extends Application {
   }
 
   public static void main(String[] args) {
-    System.out.println(new App().getGreeting());
-
     if(false) {
       randomize();
+      System.exit(0);
     }
 
     initialize();
@@ -102,11 +104,7 @@ public class App extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    // Parent root = FXMLLoader.load(getClass().getResource("App.fxml"));
-    // Group root = new Group();
-
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Home.fxml"));
-    // loader.setControllerFactory(c -> new HomeController(primaryStage));
     Parent root = loader.load();
 
     UserAgentBuilder.builder()
@@ -116,13 +114,6 @@ public class App extends Application {
       .setResolveAssets(true)
       .build()
       .setGlobal();
-
-    // MFXButton button = new MFXButton("Click me!");
-    // button.setOnAction(e -> System.out.println("Button clicked!"));
-    // button.setButtonType(ButtonType.RAISED);
-
-    // StackPane root = new StackPane();
-    // root.getChildren().add(button);
 
     primaryStage.setTitle("Medialab Library");
     primaryStage.setScene(new Scene(root));

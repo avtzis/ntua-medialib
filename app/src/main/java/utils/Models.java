@@ -222,6 +222,7 @@ public class Models {
     private String description;
     private int copies;
     private int borrows;
+    private String ISBN;
     private List<Review> reviews;
 
     public static class Review {
@@ -260,7 +261,7 @@ public class Models {
 
     public Book() {}
 
-    public Book(String title, String author, String genre, String publisher, String language, int publicationDate, int pages, String description, int copies, int borrows, List<Review> reviews) {
+    public Book(String title, String author, String genre, String publisher, String language, int publicationDate, int pages, String description, int copies, int borrows,/*  List<Review> reviews, */ String ISBN) {
       this.title = title;
       this.author = author;
       this.genre = genre;
@@ -271,7 +272,9 @@ public class Models {
       this.description = description;
       this.copies = copies;
       this.borrows = borrows;
-      this.reviews = reviews;
+      // this.reviews = reviews;
+      this.reviews = new ArrayList<>();
+      this.ISBN = ISBN;
     }
 
     public String getTitle() {
@@ -366,6 +369,13 @@ public class Models {
       this.reviews.add(review);
     }
 
+    public String getISBN() {
+      return ISBN;
+    }
+    public void setISBN(String ISBN) {
+      this.ISBN = ISBN;
+    }
+
     public List<Integer> ratings() {
       return new ArrayList<Integer>() {{
         for (Review review : reviews) {
@@ -373,12 +383,13 @@ public class Models {
         }
       }};
     }
-    public int averageRating() {
+    public double averageRating() {
+      if(reviews.size() == 0) return 0;
       int sum = 0;
       for (Review review : reviews) {
         sum += review.getRating();
       }
-      return sum / reviews.size();
+      return (double) sum / reviews.size();
     }
 
     public int reviews() {
@@ -398,6 +409,38 @@ public class Models {
         if(review.getUsername().equals(username)) return true;
       }
       return false;
+    }
+  }
+
+  public static class Category {
+    private String title;
+    private List<Book> books;
+
+    public Category() {}
+
+    public Category(String title) {
+      this.title = title;
+      this.books = new ArrayList<>();
+    }
+
+    public String getTitle() {
+      return title;
+    }
+    public void setTitle(String title) {
+      this.title = title;
+    }
+
+    public List<Book> getBooks() {
+      return books;
+    }
+    public void setBooks(List<Book> books) {
+      this.books = books;
+    }
+    public void addBook(Book book) {
+      this.books.add(book);
+    }
+    public void removeBook(Book book) {
+      this.books.remove(book);
     }
   }
 }
