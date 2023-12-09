@@ -39,6 +39,7 @@ public class App extends Application {
     admins = parser.getAdmins();
     users = parser.getUsers();
     books = parser.getBooks();
+    categories = parser.getCategories();
   }
 
   public static void save() {
@@ -67,6 +68,12 @@ public class App extends Application {
       System.out.println(book.getTitle());
     }
   }
+  public static void printCategories() {
+    System.out.println("---------------Categories----------------");
+    for (Category category : categories) {
+      System.out.println(category.getTitle());
+    }
+  }
   public static void printAll() {
     printAdmins();
     printUsers();
@@ -85,6 +92,7 @@ public class App extends Application {
 
     initialize();
     // printAll();
+    // printCategories();
     System.out.println("\n\nInitialization complete.\n\n\n");
 
     launch(args);
@@ -166,6 +174,10 @@ public class App extends Application {
       }
     }
     return null; // Book not found
+  }
+
+  public static List<Category> getCategories() {
+    return categories;
   }
 
 }

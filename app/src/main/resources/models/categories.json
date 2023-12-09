@@ -1,1 +1,61 @@
-null
+[ {
+  "title" : "Horror",
+  "books" : [ ]
+}, {
+  "title" : "Metafiction",
+  "books" : [ ]
+}, {
+  "title" : "Mythopoeia",
+  "books" : [ ]
+}, {
+  "title" : "Science fiction",
+  "books" : [ ]
+}, {
+  "title" : "Fable",
+  "books" : [ ]
+}, {
+  "title" : "Comic/Graphic Novel",
+  "books" : [ ]
+}, {
+  "title" : "Fiction narrative",
+  "books" : [ ]
+}, {
+  "title" : "Western",
+  "books" : [ ]
+}, {
+  "title" : "Tall tale",
+  "books" : [ ]
+}, {
+  "title" : "Narrative nonfiction",
+  "books" : [ ]
+}, {
+  "title" : "Short story",
+  "books" : [ ]
+}, {
+  "title" : "Fanfiction",
+  "books" : [ ]
+}, {
+  "title" : "Textbook",
+  "books" : [ ]
+}, {
+  "title" : "Fantasy",
+  "books" : [ ]
+}, {
+  "title" : "Speech",
+  "books" : [ ]
+}, {
+  "title" : "Folklore",
+  "books" : [ ]
+}, {
+  "title" : "Mythology",
+  "books" : [ ]
+}, {
+  "title" : "Crime/Detective",
+  "books" : [ ]
+}, {
+  "title" : "Mystery",
+  "books" : [ ]
+}, {
+  "title" : "Suspense/Thriller",
+  "books" : [ ]
+} ]
