@@ -26,14 +26,14 @@ public class HomeController implements Initializable {
   private Parent root;
 
   @FXML
-  private ListView topFiveList;
+  private ListView<String> topFiveList;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     List<Book> topFive = Query.topFive();
 
     for (Book book : topFive) {
-      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + book.averageRating() + "/5 (" + book.reviews() + " reviews)";
+      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + String.format("%.1f", book.averageRating()) + "/5 (" + book.reviews() + " reviews)";
       topFiveList.getItems().add(fullTitle);
     }
   }

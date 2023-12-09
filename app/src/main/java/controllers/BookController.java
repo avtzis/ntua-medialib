@@ -130,7 +130,7 @@ public class BookController implements Initializable {
 
     if(bookList != null) {
       for (Book book : books) {
-        String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + book.averageRating() + "/5 (" + book.reviews() + " reviews)";
+        String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + String.format("%.1f", book.averageRating()) + "/5 (" + book.reviews() + " reviews)";
         bookList.getItems().add(fullTitle);
       }
 
@@ -179,7 +179,7 @@ public class BookController implements Initializable {
       // isbn.setText(String.valueOf(book.getISBN()));
       date.setText(String.valueOf(book.getPublicationDate()));
       available.setText(String.valueOf(book.getCopies() - book.getBorrows()));
-      average.setText(String.valueOf(book.averageRating()));
+      average.setText(String.format("%.1f", book.averageRating()));
       category.setText(book.getGenre());
       reviews.setText(String.valueOf(book.getReviews().size()));
 
@@ -222,7 +222,7 @@ public class BookController implements Initializable {
     bookList.getItems().clear();
 
     for (Book book : books) {
-      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + book.averageRating() + "/5 (" + book.reviews() + " reviews)";
+      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + String.format("%.1f", book.averageRating()) + "/5 (" + book.reviews() + " reviews)";
       bookList.getItems().add(fullTitle);
     }
   }
