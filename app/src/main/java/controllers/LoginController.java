@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.checkerframework.checker.units.qual.s;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -64,6 +67,14 @@ public class LoginController implements Initializable {
     stage.show();
   }
 
+  private void showAlert(String message) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Login Status");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
+  }
+
   public void login(ActionEvent event) throws IOException {
     String username = this.username.getText();
     String password = this.password.getText();
@@ -71,7 +82,7 @@ public class LoginController implements Initializable {
     Admin admin = App.getAdminByUsername(username);
     if (admin != null && admin.getPassword().equals(password)) {
       switchToHome2(event);
-      System.out.println("Login successful");
+      showAlert("Login successful");
       App.setCurrentUser(admin);
       return;
     }
@@ -79,10 +90,10 @@ public class LoginController implements Initializable {
     User user = App.getUserByUsername(username);
     if (user != null && user.getPassword().equals(password)) {
       switchToHome2(event);
-      System.out.println("Login successful");
+      showAlert("Login successful");
       App.setCurrentUser(user);
     } else {
-      System.out.println("User not found");
+      showAlert("Invalid credentials");
     }
   }
 
@@ -98,16 +109,16 @@ public class LoginController implements Initializable {
     String id = this.id.getText();
 
     if(username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || firstName.equals("") || lastName.equals("") || address.equals("") || dateofbirth.equals("") || id.equals("")) {
-      System.out.println("Please fill in all fields");
+      showAlert("Please fill in all fields");
       return;
     } else if (App.getUserByUsername(username) != null) {
-      System.out.println("Username already exists");
+      showAlert("Username already exists");
       return;
     } else if (App.getUserByEmail(email) != null) {
-      System.out.println("Email already exists");
+      showAlert("Email already exists");
       return;
     } else if (App.getUserById(id) != null) {
-      System.out.println("ID already exists");
+      showAlert("ID already exists");
       return;
     } else {
       System.out.println("username: " + username);
@@ -123,7 +134,7 @@ public class LoginController implements Initializable {
 
     User user = new User(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
     App.addUser(user);
-    System.out.println("Register successful");
+    showAlert("Registration successful");
     App.setCurrentUser(user);
     switchToHome2(event);
   }
