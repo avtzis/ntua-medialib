@@ -18,7 +18,6 @@ import javafx.scene.Node;
 import utils.Query;
 import utils.ResourceLoader;
 import utils.Models.Book;
-import utils.Models.User;
 
 public class HomeController implements Initializable {
   private Stage stage;

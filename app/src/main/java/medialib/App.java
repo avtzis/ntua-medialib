@@ -3,28 +3,18 @@
  */
 package medialib;
 
-import java.io.File;
 import java.util.List;
-import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import io.github.palexdev.materialfx.theming.JavaFXThemes;
 import io.github.palexdev.materialfx.theming.MaterialFXStylesheets;
 import io.github.palexdev.materialfx.theming.UserAgentBuilder;
-import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.enums.ButtonType;
 
-import org.checkerframework.checker.units.qual.s;
-import org.checkerframework.checker.units.qual.t;
-
-import controllers.HomeController;
 import utils.Parser;
 import utils.Writer;
 
@@ -88,7 +78,7 @@ public class App extends Application {
   }
 
   public static void main(String[] args) {
-    if(false) {
+    if(args[0].equals("--randomize")) {
       randomize();
       System.exit(0);
     }

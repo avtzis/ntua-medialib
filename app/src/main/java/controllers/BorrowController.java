@@ -2,12 +2,8 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Set;
-
-import org.checkerframework.checker.units.qual.t;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,11 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import medialib.App;
-import utils.Models.Book;
 import utils.Models.User;
 import utils.Models.User.Borrows;
 import utils.Query;

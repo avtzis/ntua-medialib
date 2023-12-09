@@ -15,7 +15,7 @@ public class Parser {
   private static List<User> users;
   private static List<Book> books;
 
-  public static void parse() {
+  public void parse() {
     try {
       ObjectMapper om = new ObjectMapper();
 
