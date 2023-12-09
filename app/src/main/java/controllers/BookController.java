@@ -248,7 +248,8 @@ public class BookController implements Initializable {
     bookList.getItems().clear();
 
     for (Book book : books) {
-      bookList.getItems().add(book.getTitle());
+      String fullTitle = book.getTitle() + "\nby " + book.getAuthor() + "\n" + book.getPublicationDate() + "\n" + String.format("%.1f", book.averageRating()) + "/5 (" + book.reviews() + " reviews)";
+      bookList.getItems().add(fullTitle);
     }
   }
 

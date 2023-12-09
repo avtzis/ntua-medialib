@@ -78,7 +78,7 @@ public class App extends Application {
   }
 
   public static void main(String[] args) {
-    if(args[0].equals("--randomize")) {
+    if(false /* args[0].equals("--randomize" )*/) {
       randomize();
       System.exit(0);
     }
