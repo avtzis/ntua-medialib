@@ -40,6 +40,13 @@ public class BookController implements Initializable {
   private Parent root;
   private static Book currentBook;
 
+  public static Book getCurrentBook() {
+    return currentBook;
+  }
+  public static void setCurrentBook(Book book) {
+    currentBook = book;
+  }
+
   @FXML
   private ListView<String> bookList;
 
@@ -72,6 +79,8 @@ public class BookController implements Initializable {
   private Button borrowButton;
   @FXML
   private Button reviewButton;
+  @FXML
+  private Button addButton;
 
   @FXML
   private ChoiceBox<Integer> rating;
@@ -80,7 +89,11 @@ public class BookController implements Initializable {
   private TextArea comment;
 
   public void switchToHome(ActionEvent event) throws IOException {
-    root = FXMLLoader.load(ResourceLoader.loadURL("/views/Home2.fxml"));
+    if(App.getCurrentUser().isAdmin()) {
+      root = FXMLLoader.load(ResourceLoader.loadURL("/views/Home3.fxml"));
+    } else {
+      root = FXMLLoader.load(ResourceLoader.loadURL("/views/Home2.fxml"));
+    }
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -88,8 +101,11 @@ public class BookController implements Initializable {
   }
 
   public void switchToBook(MouseEvent event) throws IOException {
-    // currentBook = event.getSource();
-    root = FXMLLoader.load(ResourceLoader.loadURL("/views/item.fxml"));
+    if(App.getCurrentUser().isAdmin()) {
+      root = FXMLLoader.load(ResourceLoader.loadURL("/views/book-admin.fxml"));
+    } else {
+      root = FXMLLoader.load(ResourceLoader.loadURL("/views/item.fxml"));
+    }
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -114,6 +130,14 @@ public class BookController implements Initializable {
 
   public void switchToReview(ActionEvent event) throws IOException {
     root = FXMLLoader.load(ResourceLoader.loadURL("/views/review.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void switchToAddBook(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(ResourceLoader.loadURL("/views/book-add.fxml"));
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
@@ -174,7 +198,7 @@ public class BookController implements Initializable {
       title.setText(book.getTitle());
       author.setText(book.getAuthor());
       publisher.setText(book.getPublisher());
-      // isbn.setText(String.valueOf(book.getISBN()));
+      isbn.setText(String.valueOf(book.getISBN()));
       date.setText(String.valueOf(book.getPublicationDate()));
       available.setText(String.valueOf(book.getCopies() - book.getBorrows()));
       average.setText(String.format("%.1f", book.averageRating()));
@@ -205,6 +229,14 @@ public class BookController implements Initializable {
     if(rating != null) {
       for (int i = 1; i <= 5; i++) {
         rating.getItems().add(i);
+      }
+    }
+
+    if(addButton != null) {
+      if(currentUser.isAdmin()) {
+        addButton.setDisable(false);
+      } else {
+        addButton.setDisable(true);
       }
     }
   }
@@ -259,7 +291,7 @@ public class BookController implements Initializable {
       LocalDate currentDate = LocalDate.now();
       LocalDate dueDate = currentDate.plusDays(5);
 
-      currentUser.addBorrow(new Borrows(currentBook.getTitle(), currentDate.toString(), dueDate.toString(), true, "000"));
+      currentUser.addBorrow(new Borrows(currentBook.getTitle(), currentDate.toString(), dueDate.toString(), true, currentBook.getISBN()));
       currentBook.addBorrow();
       System.out.println("Borrowed book: " + currentBook.getTitle());
 

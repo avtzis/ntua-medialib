@@ -195,6 +195,13 @@ public class Models {
       return false;
     }
 
+    public boolean isCurrentlyBorrowing(String book) {
+      for (Borrows borrow : borrows) {
+        if(borrow.getBook().equals(book) && borrow.isActive()) return true;
+      }
+      return false;
+    }
+
     //
   }
 
@@ -367,6 +374,9 @@ public class Models {
     }
     public void addReview(Review review) {
       this.reviews.add(review);
+    }
+    public void removeReview(Review review) {
+      this.reviews.remove(review);
     }
 
     public String getISBN() {

@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
@@ -168,7 +169,10 @@ public class Writer {
     String email = firstName.toLowerCase() + lastName.toLowerCase() + "@gmail.com";
     String phoneNumber = faker.phoneNumber().phoneNumber();
     String address = faker.address().fullAddress();
-    String dateofbirth = faker.date().birthday().toString();
+
+    String fakerdate = faker.date().birthday().toString();
+    String dateofbirth = LocalDate.parse(fakerdate, DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
 
     int idno = faker.number().numberBetween(100000, 999999);
     String id = faker.letterify("??" + Integer.toString(idno), true);

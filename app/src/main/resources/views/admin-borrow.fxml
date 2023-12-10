@@ -37,7 +37,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
@@ -45,7 +44,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BookController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -92,7 +91,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="0.0">
                      <children>
-                        <TextField layoutX="125.0" layoutY="9.0" onAction="#search" promptText="Search..." AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <TextField layoutX="125.0" layoutY="9.0" onAction="#searchBorrow" promptText="Search..." AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -100,18 +99,13 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <MenuButton fx:id="categories" layoutX="92.0" layoutY="9.0" mnemonicParsing="false" onAction="#filterByCategory" text="Categories">
-                          <items>
-                            <MenuItem mnemonicParsing="false" onAction="#filterByCategory" text="All" />
-                          </items>
-                        </MenuButton>
-                        <Button layoutX="207.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToHome" text="Back" />
-                        <Button fx:id="addButton" layoutX="32.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToAddBook" text="Add" />
+                        <Button layoutX="141.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToHome" text="Back" />
+                        <Button layoutX="40.0" layoutY="9.0" mnemonicParsing="false" onAction="#returnBook" text="Return" />
                      </children>
                   </AnchorPane>
               </items>
             </SplitPane>
-            <ListView fx:id="bookList" layoutX="212.0" layoutY="124.0" prefHeight="373.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
+            <ListView fx:id="borrowList" layoutX="212.0" layoutY="124.0" prefHeight="373.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
          </children>
     </AnchorPane>
   </children>

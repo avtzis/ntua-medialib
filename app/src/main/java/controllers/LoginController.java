@@ -65,6 +65,14 @@ public class LoginController implements Initializable {
     stage.show();
   }
 
+  public void switchToHome3(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(ResourceLoader.loadURL("/views/Home3.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
   private void showAlert(String message) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Login Status");
@@ -79,7 +87,7 @@ public class LoginController implements Initializable {
 
     Admin admin = App.getAdminByUsername(username);
     if (admin != null && admin.getPassword().equals(password)) {
-      switchToHome2(event);
+      switchToHome3(event);
       showAlert("Login successful");
       App.setCurrentUser(admin);
       return;

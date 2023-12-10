@@ -166,6 +166,9 @@ public class App extends Application {
   public static List<Book> getBooks() {
     return books;
   }
+  public static List<User> getUsers() {
+    return users;
+  }
 
   public static Book getBookByTitle(String title) {
     for (Book book : books) {
@@ -178,6 +181,34 @@ public class App extends Application {
 
   public static List<Category> getCategories() {
     return categories;
+  }
+
+  public static void addBook(Book book) {
+    books.add(book);
+  }
+
+  public static void removeBook(Book book) {
+    books.remove(book);
+  }
+
+  public static Category getCategoryByTitle(String title) {
+    for (Category category : categories) {
+      if (category.getTitle().equals(title)) {
+        return category;
+      }
+    }
+    return null; // Category not found
+  }
+
+  public static void addCategory(Category category) {
+    categories.add(category);
+  }
+  public static void removeCategory(Category category) {
+    categories.remove(category);
+  }
+
+  public static void removeUser(User user) {
+    users.remove(user);
   }
 
 }

@@ -8,13 +8,13 @@
   "title" : "Mythopoeia",
   "books" : [ ]
 }, {
-  "title" : "Science fiction",
-  "books" : [ ]
-}, {
-  "title" : "Fable",
+  "title" : "Biography/Autobiography",
   "books" : [ ]
 }, {
   "title" : "Comic/Graphic Novel",
+  "books" : [ ]
+}, {
+  "title" : "Classic",
   "books" : [ ]
 }, {
   "title" : "Fiction narrative",
@@ -26,9 +26,6 @@
   "title" : "Tall tale",
   "books" : [ ]
 }, {
-  "title" : "Narrative nonfiction",
-  "books" : [ ]
-}, {
   "title" : "Short story",
   "books" : [ ]
 }, {
@@ -38,24 +35,27 @@
   "title" : "Textbook",
   "books" : [ ]
 }, {
-  "title" : "Fantasy",
-  "books" : [ ]
-}, {
   "title" : "Speech",
-  "books" : [ ]
-}, {
-  "title" : "Folklore",
-  "books" : [ ]
-}, {
-  "title" : "Mythology",
   "books" : [ ]
 }, {
   "title" : "Crime/Detective",
   "books" : [ ]
 }, {
+  "title" : "Reference book",
+  "books" : [ ]
+}, {
+  "title" : "Mythology",
+  "books" : [ ]
+}, {
+  "title" : "Folklore",
+  "books" : [ ]
+}, {
   "title" : "Mystery",
   "books" : [ ]
 }, {
-  "title" : "Suspense/Thriller",
+  "title" : "Fiction in verse",
+  "books" : [ ]
+}, {
+  "title" : "Essay",
   "books" : [ ]
 } ]
