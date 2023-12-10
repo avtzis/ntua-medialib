@@ -12,10 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import io.github.palexdev.materialfx.theming.JavaFXThemes;
-import io.github.palexdev.materialfx.theming.MaterialFXStylesheets;
-import io.github.palexdev.materialfx.theming.UserAgentBuilder;
-
 import utils.Parser;
 import utils.Writer;
 
@@ -89,6 +85,7 @@ public class App extends Application {
     printAdmins();
     printUsers();
     printBooks();
+    printCategories();
   }
 
   public static void randomize() {
@@ -96,33 +93,26 @@ public class App extends Application {
   }
 
   public static void main(String[] args) {
-    if(false /* args[0].equals("--randomize" )*/) {
+    if(args.length > 0 && args[0].equals("--randomize" )) {
       randomize();
       System.exit(0);
     }
 
     initialize();
     // printAll();
-    // printCategories();
-    System.out.println("\n\nInitialization complete.\n\n\n");
+    System.out.println("\n\nInitialization complete.");
 
+    System.out.println("Launching application...");
     launch(args);
 
     save();
+    System.out.println("Data saved successfully.");
   }
 
   @Override
   public void start(Stage primaryStage) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Home.fxml"));
     Parent root = loader.load();
-
-    UserAgentBuilder.builder()
-      .themes(JavaFXThemes.MODENA)
-      .themes(MaterialFXStylesheets.forAssemble(true))
-      .setDeploy(true)
-      .setResolveAssets(true)
-      .build()
-      .setGlobal();
 
     primaryStage.setTitle("Medialab Library");
     primaryStage.setScene(new Scene(root));
