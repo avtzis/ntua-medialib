@@ -16,15 +16,16 @@ import com.github.javafaker.Faker;
 import utils.Models.User;
 import utils.Models.Book.Review;
 import utils.Models.User.Borrows;
+import utils.Models.Admin;
 import utils.Models.Book;
 import utils.Models.Category;
 
 public class Writer {
-  public static void write(/* List<Admin> admins, */ List<User> users, List<Book> books, List<Category> categories) {
+  public static void write(List<Admin> admins, List<User> users, List<Book> books, List<Category> categories) {
     try {
       ObjectMapper om = new ObjectMapper();
 
-      // om.writeValue(new File("src/main/resources/admins.json"), admins);
+      om.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/models/admins.json"), admins);
       om.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/models/users.json"), users);
       om.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/models/books.json"), books);
       om.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/models/categories.json"), categories);
@@ -153,7 +154,11 @@ public class Writer {
     }
     System.out.println("Created borrows and reviews.");
 
-    write(users, books, categories);
+    List<Admin> admins = new ArrayList<>();
+    admins.add(new Admin("admin", "admin"));
+    admins.add(new Admin("medialab", "medialab_2024"));
+
+    write(admins, users, books, categories);
     System.out.println("Files successfully written.");
   }
 

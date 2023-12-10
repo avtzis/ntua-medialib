@@ -102,6 +102,10 @@ public class Query {
 
     books.sort((a, b) -> Double.compare(a.averageRating(), b.averageRating()));
 
+    if(books.size() < 5) {
+      return books;
+    }
+
     results.add(books.get(books.size() - 1));
     results.add(books.get(books.size() - 2));
     results.add(books.get(books.size() - 3));

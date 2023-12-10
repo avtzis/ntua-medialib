@@ -3,6 +3,7 @@
  */
 package medialib;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
@@ -40,10 +41,20 @@ public class App extends Application {
     users = parser.getUsers();
     books = parser.getBooks();
     categories = parser.getCategories();
+
+    if(users == null) users = new ArrayList<User>();
+    if(books == null) books = new ArrayList<Book>();
+    if(categories == null) categories = new ArrayList<Category>();
+
+    if(admins == null) {
+      admins = new ArrayList<Admin>();
+      admins.add(new Admin("admin", "admin"));
+      admins.add(new Admin("medialab", "medialab_2024"));
+    }
   }
 
   public static void save() {
-    Writer.write(users, books, categories);
+    Writer.write(admins, users, books, categories);
   }
 
   public String getGreeting() {

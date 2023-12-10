@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -30,6 +31,7 @@ import javafx.scene.Node;
 import utils.Query;
 import utils.ResourceLoader;
 import utils.Models.Book;
+import utils.Models.Category;
 import utils.Models.User;
 import utils.Models.Book.Review;
 import utils.Models.User.Borrows;
@@ -137,11 +139,25 @@ public class BookController implements Initializable {
   }
 
   public void switchToAddBook(ActionEvent event) throws IOException {
+    List<Category> categories = App.getCategories();
+    if(categories.size() == 0) {
+      showAlert("No categories available. Please add a category first.");
+      return;
+    }
+
     root = FXMLLoader.load(ResourceLoader.loadURL("/views/book-add.fxml"));
     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
+  }
+
+  private void showAlert(String message) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Management");
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.showAndWait();
   }
 
   @Override

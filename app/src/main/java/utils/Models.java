@@ -212,6 +212,10 @@ public class Models {
       super(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
     }
 
+    public Admin(String username, String password) {
+      super(username, password, "", "", "", "", "", "", "");
+    }
+
     @Override
     public boolean isAdmin() {
       return true;
