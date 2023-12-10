@@ -219,6 +219,12 @@
     "returnDate" : "2023-11-30",
     "active" : false,
     "isbn" : "9784910371236"
+  }, {
+    "book" : "The Glory and the Dream",
+    "date" : "2023-12-10",
+    "returnDate" : "2023-12-15",
+    "active" : true,
+    "isbn" : "9786480601960"
   } ]
 }, {
   "username" : "myriam.willms",

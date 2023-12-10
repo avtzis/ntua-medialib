@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import medialib.App;
@@ -42,6 +44,14 @@ public class BorrowController implements Initializable {
     stage.show();
   }
 
+  public void switchToBook(MouseEvent event) throws IOException {
+    root = FXMLLoader.load(ResourceLoader.loadURL("/views/item.fxml"));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+  }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     User currentUser = App.getCurrentUser();
@@ -53,6 +63,28 @@ public class BorrowController implements Initializable {
         String fullTitle = "(" + status + ") " + borrow.getBook() + "\nISBN: " + borrow.getISBN() + "\nBorrowed: " + borrow.getDate() + "\nReturn: " + borrow.getReturnDate();
         bookList.getItems().add(fullTitle);
       }
+
+      bookList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+          if(event.getClickCount() == 2) {
+            String selected = bookList.getSelectionModel().getSelectedItem();
+            String[] lines = selected.split("\n");
+            String titleLine = lines[0];
+            int index = titleLine.indexOf(")");
+            String title = titleLine.substring(index + 2);
+
+            System.out.println("Selected book: " + title);
+
+            BookController.setCurrentBook(App.getBookByTitle(title));
+            try {
+              switchToBook(event);
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
+          }
+        }
+      });
     }
 
     if(this.active != null) {
