@@ -12,12 +12,18 @@ import utils.Models.User;
 import utils.Models.Book;
 import utils.Models.Category;
 
+/**
+ * The Parser class is responsible for parsing JSON files and providing access to the parsed data.
+ */
 public class Parser {
   private static List<Admin> admins;
   private static List<User> users;
   private static List<Book> books;
   private static List<Category> categories;
 
+  /**
+   * Parses the JSON files and populates the corresponding lists.
+   */
   public void parse() {
     String adminPath = "src/main/resources/models/admins.json";
     String userPath = "src/main/resources/models/users.json";
@@ -42,15 +48,38 @@ public class Parser {
     }
   }
 
+  /**
+   * Returns the list of admins.
+   *
+   * @return the list of admins
+   */
   public List<Admin> getAdmins() {
     return admins;
   }
+
+  /**
+   * Returns the list of users.
+   *
+   * @return the list of users
+   */
   public List<User> getUsers() {
     return users;
   }
+
+  /**
+   * Returns the list of books.
+   *
+   * @return the list of books
+   */
   public List<Book> getBooks() {
     return books;
   }
+
+  /**
+   * Returns the list of categories.
+   *
+   * @return the list of categories
+   */
   public List<Category> getCategories() {
     return categories;
   }

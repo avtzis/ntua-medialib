@@ -20,7 +20,21 @@ import utils.Models.Admin;
 import utils.Models.Book;
 import utils.Models.Category;
 
+/**
+ * The Writer class provides methods for writing data to JSON files and populating the data.
+ * It includes methods for writing lists of Admin, User, Book, and Category objects to JSON files,
+ * as well as a method for populating the data with randomly generated users, books, categories,
+ * borrows, and reviews.
+ */
 public class Writer {
+  /**
+   * Writes the provided lists of admins, users, books, and categories to JSON files.
+   *
+   * @param admins     The list of admins to be written to the admins.json file.
+   * @param users      The list of users to be written to the users.json file.
+   * @param books      The list of books to be written to the books.json file.
+   * @param categories The list of categories to be written to the categories.json file.
+   */
   public static void write(List<Admin> admins, List<User> users, List<Book> books, List<Category> categories) {
     try {
       ObjectMapper om = new ObjectMapper();
@@ -35,11 +49,17 @@ public class Writer {
     }
   }
 
+  /**
+   * Populates the data for the media library application.
+   * This method creates users, books, categories, borrows, reviews, and admins.
+   * It generates random data using the Faker library.
+   */
   public static void populate() {
     List<User> users = new ArrayList<>();
     List<Book> books = new ArrayList<>();
     List<Category> categories = new ArrayList<>();
 
+    // Generate 20 unique categories
     Set<String> uniqueCategories = new HashSet<>();
     while(uniqueCategories.size() < 20) {
       uniqueCategories.add(getRandomCategory());
@@ -49,6 +69,7 @@ public class Writer {
     }
     System.out.println("Created categories.");
 
+    // Generate 180 unique books with random titles and categories
     Set<String> uniqueTitles = new HashSet<>();
     while(uniqueTitles.size() < 180) {
       Random random = new Random();
@@ -63,11 +84,13 @@ public class Writer {
     }
     System.out.println("Created books.");
 
+    // Generate 50 random users
     for(int i=0; i<50; ++i) {
       users.add(getRandomUser());
     }
     System.out.println("Created users.");
 
+    // Generate borrows and reviews for each user
     for(User user : users) {
       Faker faker = new Faker();
       List<Integer> usedBooks = new ArrayList<>();
@@ -154,14 +177,21 @@ public class Writer {
     }
     System.out.println("Created borrows and reviews.");
 
+    // Create admin users
     List<Admin> admins = new ArrayList<>();
     admins.add(new Admin("admin", "admin"));
     admins.add(new Admin("medialab", "medialab_2024"));
 
+    // Write the data to files
     write(admins, users, books, categories);
     System.out.println("Files successfully written.");
   }
 
+  /**
+   * Generates a random User object with fake data.
+   *
+   * @return A User object with randomly generated data.
+   */
   private static User getRandomUser() {
     Faker faker = new Faker();
 
@@ -178,13 +208,18 @@ public class Writer {
     String fakerdate = faker.date().birthday().toString();
     String dateofbirth = LocalDate.parse(fakerdate, DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-
     int idno = faker.number().numberBetween(100000, 999999);
     String id = faker.letterify("??" + Integer.toString(idno), true);
 
     return new User(username, password, firstName, lastName, email, phoneNumber, address, dateofbirth, id);
   }
 
+  /**
+   * Generates a random Book object with the given random category.
+   *
+   * @param randomCategory The random category for the book.
+   * @return A randomly generated Book object.
+   */
   private static Book getRandomBook(String randomCategory) {
     Faker faker = new Faker();
 
@@ -206,6 +241,11 @@ public class Writer {
     return new Book(title, author, genre, publisher, language, publicationDate, pages, description, copies, borrows, ISBN);
   }
 
+  /**
+   * Generates a random ISBN (International Standard Book Number) using the Faker library.
+   *
+   * @return The generated ISBN as a string.
+   */
   private static String generateISBN() {
     Faker faker = new Faker();
 
@@ -224,6 +264,11 @@ public class Writer {
     return prefix + digit1 + digit2 + digit3 + digit4 + digit5 + digit6 + digit7 + digit8 + digit9 + digit10;
   }
 
+  /**
+   * Generates a random category using the Faker library.
+   *
+   * @return A randomly generated category.
+   */
   private static String getRandomCategory() {
     Faker faker = new Faker();
 
